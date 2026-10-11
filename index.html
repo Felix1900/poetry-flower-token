@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞花令 - 古诗词游戏</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌸 飞花令</h1>
+            <p class="subtitle">一字一诗，妙语连珠</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-group">
+                <input 
+                    type="text" 
+                    id="characterInput" 
+                    maxlength="1" 
+                    placeholder="输入一个字" 
+                    class="input-field"
+                >
+                <button id="generateBtn" class="btn-generate">生成诗句</button>
+            </div>
+            <p class="tips">💡 提示：输入一个字，即可生成100句含有该字的古诗词</p>
+        </div>
+
+        <div id="loadingSpinner" class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>正在查询诗词库...</p>
+        </div>
+
+        <div id="resultSection" class="result-section" style="display: none;">
+            <div class="result-header">
+                <h2>含有"<span id="resultChar"></span>"的诗句</h2>
+                <div class="result-stats">
+                    <span id="resultCount" class="count-badge">0</span>
+                    <button id="copyAllBtn" class="btn-action">复制全部</button>
+                    <button id="exportBtn" class="btn-action">导出TXT</button>
+                </div>
+            </div>
+
+            <div id="resultList" class="result-list">
+                <!-- 诗句将动态插入这里 -->
+            </div>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <p>🔍 未找到包含该字的诗句</p>
+            <p class="empty-tips">请尝试其他字</p>
+        </div>
+    </div>
+
+    <script src="poetry-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
